@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Auth</title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/fontello.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="auth">
+    <div class="auth__left">
+      <div class="auth__form">
+        <h2 class="title">Let's set up your account</h2>
+        <span class="auth__noted">
+          Already have an account? <a href="#"><b>Sign in</b></a>
+        </span>
+        <form class="form" id="form_auth">
+          <div class="form__item">
+            <input type="text" name="username" id="username" class="form__input">
+            <label for="username" class="form__label">Your name</label>
+            <span class="form__notif form__notif--error">Please enter your name</span>
+          </div>
+          <div class="form__item">
+            <input type="email" name="email" id="email" class="form__input">
+            <label for="email" class="form__label">Email address</label>
+            <span class="form__notif form__notif--error">Please enter a valid email address</span>
+          </div>
+          <div class="form__item">
+            <select name="type" id="type" class="form__input">
+              <option value="1">I would describe my user type as</option>
+              <option value="2">Digital Marketing</option>
+              <option value="3">Legal</option>
+              <option value="4">Developer</option>
+            </select>
+          </div>
+          <div class="form__item">
+            <input type="password" name="password" id="password" class="form__input">
+            <label for="password" class="form__label">Password</label>
+            <span class="form__notif">Minimum 8 characters</span>
+            <button class="form__toggle-type"><i class="icon-eye"></i></button>
+          </div>
+          <div class="form__item">
+            <input type="submit" name="submit" class="button button--full" value="Next" disabled>
+          </div>
+        </form>
+        <span class="auth__agree">
+          By clicking the "Next" button, you agree to creating a free account, and to <a href="#"><b>Terms of Service</b></a> and <a href="#"><b>Privacy Policy.</b></a>
+        </span>
+      </div>
+    </div>
+    <div class="auth__right">
+      <div class="auth__caption">
+        <h1 class="title">Dummy Heading</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do euismod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
