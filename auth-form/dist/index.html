@@ -18,7 +18,7 @@
         <span class="auth__noted">
           Already have an account? <a href="#"><b>Sign in</b></a>
         </span>
-        <form class="form" id="form_auth">
+        <form class="form" name="form_auth" id="form_auth">
           <div class="form__item">
             <input type="text" name="username" id="username" class="form__input">
             <label for="username" class="form__label">Your name</label>
@@ -30,7 +30,8 @@
             <span class="form__notif form__notif--error">Please enter a valid email address</span>
           </div>
           <div class="form__item">
-            <select name="type" id="type" class="form__input">
+            <label for="email" class="screen-reader-text">Position</label>
+            <select name="position" id="position" class="form__input">
               <option value="1">I would describe my user type as</option>
               <option value="2">Digital Marketing</option>
               <option value="3">Legal</option>
@@ -41,7 +42,7 @@
             <input type="password" name="password" id="password" class="form__input">
             <label for="password" class="form__label">Password</label>
             <span class="form__notif">Minimum 8 characters</span>
-            <button class="form__toggle-type"><i class="icon-eye"></i></button>
+            <button type="button" class="form__toggle-type"><span class="icon-eye"></span></button>
           </div>
           <div class="form__item">
             <input type="submit" name="submit" class="button button--full" value="Next" disabled>

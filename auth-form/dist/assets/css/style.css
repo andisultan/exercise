@@ -21,6 +21,19 @@ a {
   color: #296ff9;
 }
 
+button span,
+button i {
+  pointer-events: none;
+}
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+}
+
 /* general  */
 .title {
   margin-bottom: 50px;
@@ -92,7 +105,7 @@ a {
 
 
 .form__item {
-  padding: 7px 0;
+  padding: 10px 0;
   position: relative;
 }
 
@@ -112,9 +125,9 @@ a {
 }
 
 .form__label {
-  color: #aaaaaa;
+  color: #777777;
   position: absolute;
-  top: 26px;
+  top: 29px;
   left: 10px;
   padding: 0 4px;
   display: inline-block;
@@ -131,14 +144,14 @@ a {
 .form__input {
   display: block;
   width: 100%;
-  padding: 16px 14px;
-  margin-bottom: 8px;
+  padding: 14px;
   border: 1px solid #eeeeee;
   border-radius: 4px;
+  margin-bottom: 4px;
   font-size: 16px;  
   color: #373737;
-  outline: none;
   background-color: transparent;
+  line-height: 1.5;
 }
 
 .form__input[type="password"] {
@@ -146,7 +159,14 @@ a {
 }
 
 select.form__input {
-  color: #aaaaaa;
+  /* A reset of styles, including removing the default dropdown arrow */
+  appearance: none;
+  color: #777777;
+  position: relative;
+}
+
+select.form__input:after {
+  content: '';
 }
 
 .form__input:focus + .form__label,
@@ -156,17 +176,21 @@ select.form__input {
 
 .form__notif {
   font-size: 12px;
-  color: #aaaaaa;
+  color: #777777;
+}
+
+.form__notif--error {
   display: none;
 }
 
 .form__toggle-type {
   position: absolute;
-  top: 8px;
+  top: 10px;
   right: 0;
-  padding: 16px 10px;
+  padding: 18px 10px;
   border: 0;
   background: transparent;
+  line-height: 1;
 }
 
 @media only screen and (max-width: 768px) {

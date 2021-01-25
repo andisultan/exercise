@@ -20,7 +20,8 @@
 }
 */
  
- [class^="icon-"]:before, [class*=" icon-"]:before {
+ [class^="icon-"]:before, [class*=" icon-"]:before,
+ select.form__input:after {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
