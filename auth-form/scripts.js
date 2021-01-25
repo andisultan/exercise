@@ -6,22 +6,23 @@ const is_email_with_TLD = ( email ) => {
 
 const form_auth = document.forms['form_auth'];
 
-const remove_error__class = ( e ) => {
-  e.target.nextElementSibling.classList.add('form__label--filled');
-  e.target.parentElement.classList.remove('form__item--error');
+const remove_error_class = ( elm ) => {
+  elm.nextElementSibling.classList.add('form__label--filled');
+  elm.parentElement.classList.remove('form__item--error');
 }
 
-const add_error__class = ( e ) => {
-  e.target.parentElement.classList.add('form__item--error');
-  e.target.nextElementSibling.classList.add('form__label--filled');
+const add_error_class = ( elm ) => {
+  elm.parentElement.classList.add('form__item--error');
+  elm.nextElementSibling.classList.add('form__label--filled');
 }
 
-const is_input_empty = () => {
-  if ( form_auth.username.value.length  > 1 &&
-    form_auth.email.value.length > 1 &&
-    form_auth.position.value > 1 &&
-    form_auth.password.value.length > 7
-  ) {
+const is_input_form_empty = () => {
+  let username = form_auth.username.value.length;
+  let email    = form_auth.email.value.length;
+  let position = form_auth.position.value;
+  let password = form_auth.password.value.length;
+
+  if ( username  > 0 && email > 3 && position > 1 && password > 7 ) {
     form_auth.submit.removeAttribute('disabled');
   } else {
     form_auth.submit.setAttribute('disabled', 'true');
@@ -29,40 +30,47 @@ const is_input_empty = () => {
 }
 
 const form_input_validate = ( selector ) => {
-  if ( !selector ) {
-    return;
-  }
-  
+  if ( !selector ) return;
+
   selector.addEventListener( 'change', ( e ) => {
-    if ( e.target.type !== 'password' && e.target.type !== 'email' && e.target.value !== '' ) {
-      remove_error__class( e );
-    } else if ( e.target.type === 'password' && e.target.value.length > 7 ) {
-      remove_error__class( e );
-    }else if ( e.target.type === 'email' && is_email_with_TLD( e.target.value ) ) {
-      remove_error__class( e );
+    let elm    = e.target;
+    let value  = elm.value;
+    let type   = elm.type;
+    let name   = elm.name;
+    let length = elm.value.length;
+
+    if ( type !== 'password' && name !== 'password' && type !== 'email' && length > 0 ) {
+      remove_error_class( elm );
+    } else if ( ( type === 'password' || name === 'password' ) && length > 7 ) {
+      remove_error_class( elm );
+    }else if ( type === 'email' && is_email_with_TLD( value ) ) {
+      remove_error_class( elm );
     }else {
-      add_error__class(e);
+      add_error_class( elm );
     }
   
-    is_input_empty();
+    is_input_form_empty();
   });
 }
 
-form_input_validate(form_auth.username);
-form_input_validate(form_auth.email);
-form_input_validate(form_auth.password);
-form_input_validate(form_auth.date);
+form_input_validate( form_auth.username );
+form_input_validate( form_auth.email );
+form_input_validate( form_auth.password );
+form_input_validate( form_auth.date );
 
 form_auth.position.addEventListener( 'change', () => {
-  is_input_empty();
+  is_input_form_empty();
 });
 
 document.querySelector('.form__toggle-type').addEventListener( 'click', ( e ) => {
-  if ( form_auth.password.type === 'password') {
-    form_auth.password.type = 'text';
-    e.target.firstChild.classList = 'icon-eye-off';
+  let password = form_auth.password;
+  let icon     = e.target.firstChild;
+
+  if ( password.type === 'password') {
+    password.type  = 'text';
+    icon.classList = 'icon-eye-off';
   } else {
-    form_auth.password.type = 'password';
-    e.target.firstChild.classList = 'icon-eye';
+    password.type  = 'password';
+    icon.classList = 'icon-eye';
   }
-});
+} );

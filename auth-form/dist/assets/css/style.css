@@ -36,7 +36,7 @@ button i {
 
 /* general  */
 .title {
-  margin-bottom: 50px;
+  margin: 0 0 40px;
   font-size: 30px;
 }
 
@@ -75,7 +75,7 @@ button i {
 
 .auth__noted {
   color: #505050;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   display: block;
 }
 
