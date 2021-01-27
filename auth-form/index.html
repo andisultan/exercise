@@ -4,10 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Auth</title>
-  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/fontello.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -20,17 +18,17 @@
         </span>
         <form class="form" name="form_auth" id="form_auth">
           <div class="form__item">
-            <input type="text" name="username" id="username" class="form__input">
+            <input type="text" name="username" id="username" class="form__input" aria-describedby="username-error">
             <label for="username" class="form__label">Your name</label>
-            <span class="form__notif form__notif--error">Please enter your name</span>
+            <span class="form__notif form__notif--error" aria-hidden="false" id="username-error">Please enter your name</span>
           </div>
           <div class="form__item">
-            <input type="email" name="email" id="email" class="form__input">
+            <input type="email" name="email" id="email" class="form__input" aria-describedby="email-error">
             <label for="email" class="form__label">Email address</label>
-            <span class="form__notif form__notif--error">Please enter a valid email address</span>
+            <span class="form__notif form__notif--error" aria-hidden="false" id="email-error">Please enter a valid email address</span>
           </div>
           <div class="form__item">
-            <label for="email" class="screen-reader-text">Position</label>
+            <label for="position" class="screen-reader-text">Position</label>
             <select name="position" id="position" class="form__input">
               <option value="1">I would describe my user type as</option>
               <option value="2">Digital Marketing</option>
@@ -39,10 +37,12 @@
             </select>
           </div>
           <div class="form__item">
-            <input type="password" name="password" id="password" class="form__input">
+            <input type="password" name="password" id="password" class="form__input" minlength="8" aria-describedby="password-length">
             <label for="password" class="form__label">Password</label>
-            <span class="form__notif">Minimum 8 characters</span>
-            <button type="button" class="form__toggle-type"><span class="icon-eye"></span></button>
+            <span class="form__notif" id="password-length">Minimum 8 characters</span>
+            <button type="button" class="form__toggle-type" aria-label="show Password">
+              <span aria-hidden="true" class="icon-eye"></span>
+            </button>
           </div>
           <div class="form__item">
             <input type="submit" name="submit" class="button button--full" value="Next" disabled>
